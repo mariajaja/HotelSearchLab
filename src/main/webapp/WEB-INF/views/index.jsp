@@ -9,6 +9,7 @@
 </head>
 <body>
 	<div class=container>
+	<h2>Hotel Search</h2>
 	<p>${ allcities } </p>
 		<form class="form-inline" action="/list">
 			<label class="sr-only" for="category">Choose a City</label>
@@ -18,8 +19,10 @@
 	                <option <c:if test="${ city eq param.city }">selected</c:if>>${ city }</option>
 	            </c:forEach>
 	       	</select>
+	       	<label class="sr-only" for="maxPrice">Maximum Per Night</label>
+	       	<input type="number" value="${param.maxPrice}" name="maxPrice" placeholder="Maximum Price">
 	       	<button type="submit">Search</button>
-	          <c:if test="${not empty param.city}">
+	          <c:if test="${ not empty param.city }">
 	            <a href="/">Clear</a>
 	          </c:if>
 		</form>

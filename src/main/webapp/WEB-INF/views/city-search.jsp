@@ -10,6 +10,7 @@
 </head>
 <body>
 	<div class=container>
+		<h2>Hotels in ${ city }</h2>
 		<table>
 			<tr>
 				<th>Name</th>
@@ -22,6 +23,8 @@
 				</tr>
 			</c:forEach>
 		</table>
+		
+		<a href="/">Search again?</a>
 	</div>
 </body>
 </html>

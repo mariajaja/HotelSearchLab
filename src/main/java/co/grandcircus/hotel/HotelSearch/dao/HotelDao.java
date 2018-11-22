@@ -26,6 +26,11 @@ public class HotelDao {
 	}
 	
 	public List<Hotel> findHotelList(String city) {
-		return em.createQuery("FROM Hotel WHERE city = :city", Hotel.class).setParameter("city", city).getResultList();
+		return em.createQuery("FROM Hotel WHERE city = :city ORDER BY pricePerNight", Hotel.class).setParameter("city", city).getResultList();
 	}
+	
+	public List<Hotel> findHotelList(String city, Integer maxPrice) {
+		return em.createQuery("FROM Hotel WHERE city = :city AND pricePerNight <= :maxPrice ORDER BY pricePerNight", Hotel.class).setParameter("city", city).setParameter("maxPrice", maxPrice).getResultList();
+	}
+
 }

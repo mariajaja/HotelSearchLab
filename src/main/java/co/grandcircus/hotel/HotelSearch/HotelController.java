@@ -23,9 +23,14 @@ public class HotelController {
 	}
 	
 	@GetMapping("/list")
-	public ModelAndView citySearch(@RequestParam(name="city") String city) {
+	public ModelAndView citySearch(@RequestParam(name="city") String city, @RequestParam(name="maxPrice", required=false) Integer maxPrice) {
 		ModelAndView mav = new ModelAndView("city-search");
-		mav.addObject("hotelList", hotelDao.findHotelList(city));
+		mav.addObject("city", city);
+		if (maxPrice != null) {
+			mav.addObject("hotelList", hotelDao.findHotelList(city, maxPrice));
+		} else {
+			mav.addObject("hotelList", hotelDao.findHotelList(city));
+		}
 		return mav;
 	}
 
