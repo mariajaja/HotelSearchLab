@@ -19,6 +19,7 @@ public class Hotel {
 	private String name;
 	private String city;
 	private Integer pricePerNight;
+	@Column(columnDefinition = "int default 0")
 	private Integer votes;
 	
 	public Long getId() {

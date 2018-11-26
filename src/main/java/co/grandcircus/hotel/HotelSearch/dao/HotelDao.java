@@ -21,6 +21,11 @@ public class HotelDao {
 		return em.createQuery("FROM Hotel", Hotel.class).getResultList();
 	}
 	
+	// find a way to get
+	public void updateHotelVote(Long id, Integer votes) {
+		em.createQuery("FROM Hotel WHERE id = :id UPDATE votes = :votes").setParameter("id", id).setParameter("votes", votes);
+	}
+	
 	public List<String> findCityList() {
 		return em.createQuery("SELECT DISTINCT city FROM Hotel", String.class).getResultList();
 	}
